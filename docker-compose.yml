@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .                    # Dockerfile to Build is in this file
+      dockerfile: Dockerfile.dev    # le nom du fichier Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules        # réference the node_modules in the container
+      - .:/app                   # matcher our folder with "app" folder of container
+  tests:
+    build:
+      context: .                
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules       
+      - .:/app    
+    command: ["npm", "run", "test"]

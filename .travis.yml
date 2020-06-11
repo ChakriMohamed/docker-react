@@ -3,10 +3,10 @@ services:
   - docker
 
 before_install:
-  - docker build -t chakriMohamed/docker-react -f Dockerfile.dev .
+  - docker build -t chakrimohamed:docker-react -f Dockerfile.dev .
 
 script:
-  - docker run ChakriMohamed/docker-react npm run test -- --coverage		 # coverage for exit and end the test
+  - docker run chakrimohamed:docker-react npm run test -- --coverage		 # coverage for exit and end the test
 
 #deployement in AWS
 deploy:
